@@ -1,0 +1,25 @@
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Pre-downloaded models and archives (>100MB exceeds GitHub limit)
+Qwen2.5-1.5B-Instruct/
+*.zip
+*.tar.gz
+*.safetensors
+*.bin
+
+# Training outputs and benchmarks
+outputs/
+results/
+artifacts/
+
+# Python caches & IDE
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.hypothesis/
+.idea/
+.vscode/
+.streamlit/
