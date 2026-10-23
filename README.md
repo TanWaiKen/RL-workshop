@@ -5,8 +5,8 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 > **Speaker:** Tan Wai Ken  
-> 📊 **Interactive Presentation Slides:** [View Slide Deck](https://claude.ai/artifact/LME1oFNbD8H7uWsVZX1eGK#slide-131ea34db598)  
-> 📓 **Main Hands-on Notebook:** [`tool_call_rl.ipynb`](./tool_call_rl.ipynb)
+> **Presentation Slides + Note:** [View Slide Deck](https://www.notion.so/RL-in-LLM-3f8c65492a978017bd87e2ef3326594b)  
+> **Main Hands-on Notebook:** [`tool_call_rl.ipynb`](./tool_call_rl.ipynb)
 
 ---
 
