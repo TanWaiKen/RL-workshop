@@ -1,0 +1,2333 @@
+{
+  "simple": {
+    "total_items": 25,
+    "items": [
+      {
+        "__type__": "EvalItem",
+        "category": "simple",
+        "source": "sim",
+        "prompt_messages": [
+          {
+            "role": "system",
+            "content": "You are helping someone make their partner Grace happy.\nGrace (she/her) is feeling angry. Love meter: 21/100. Occasion: right after a disagreement.\nWhat Grace likes: favorite gifts are flowers; she enjoys action or comedy movies and does not enjoy animation movies; her favorite food is pancakes; her love language is acts of service.\nThink briefly inside <think>...</think>, then call the tools that make Grace happiest, or answer in plain text if no tool fits."
+          },
+          {
+            "role": "user",
+            "content": "We just had an argument and she's upset. What should I do?"
+          }
+        ],
+        "tools": [
+          {
+            "type": "function",
+            "function": {
+              "name": "apologize",
+              "description": "Sincerely apologize to the partner.",
+              "parameters": {
+                "type": "object",
+                "properties": {
+                  "reason": {
+                    "type": "string",
+                    "description": "A short reason for the apology (non-empty, at most 200 characters)."
+                  }
+                },
+                "required": [
+                  "reason"
+                ]
+              },
+              "return": {
+                "type": "object"
+              }
+            }
+          }
+        ],
+        "gt_calls": [
+          {
+            "__type__": "GTCall",
+            "name": "apologize",
+            "args": {
+              "reason": {
+                "__type__": "FreeText",
+                "max_len": 200
+              }
+            }
+          }
+        ],
+        "scenario": {
+          "__type__": "Scenario",
+          "scenario_id": "f3fefe422f2aacdb609641dd36176175632cb902",
+          "partner_name": "Grace",
+          "pronoun": "she",
+          "state": {
+            "__type__": "PartnerState",
+            "mood": "angry",
+            "love_meter": 21,
+            "occasion": "after_argument",
+            "preferences": {
+              "__type__": "Preferences",
+              "favorite_gift_types": [
+                "flowers"
+              ],
+              "liked_genres": [
+                "action",
+                "comedy"
+              ],
+              "disliked_genres": [
+                "animation"
+              ],
+              "favorite_food": "pancakes",
+              "love_language": "acts_of_service"
+            }
+          },
+          "request": "We just had an argument and she's upset. What should I do?",
+          "optimal_plan": [
+            [
+              {
+                "__type__": "ToolCall",
+                "name": "apologize",
+                "arguments": {
+                  "reason": "I love you"
+                }
+              }
+            ],
+            [
+              {
+                "__type__": "ToolCall",
+                "name": "give_gift",
+                "arguments": {
+                  "item": "roses"
+                }
+              },
+              {
+                "__type__": "ToolCall",
+                "name": "give_gift",
+                "arguments": {
+                  "item": "sunflowers"
+                }
+              }
+            ]
+          ],
+          "optimal_delta": 55,
+          "no_tool_keywords": null
+        },
+        "item_id": "sim-simple-apologize-f3fefe422f"
+      },
+      {
+        "__type__": "EvalItem",
+        "category": "simple",
+        "source": "sim",
+        "prompt_messages": [
+          {
+            "role": "system",
+            "content": "You are helping someone make their partner Lina happy.\nLina (she/her) is feeling happy. Love meter: 37/100. Occasion: your anniversary.\nWhat Lina likes: favorite gifts are flowers or plush toy; she enjoys horror movies and does not enjoy comedy movies; her favorite food is soup; her love language is words of affirmation.\nThink briefly inside <think>...</think>, then call the tools that make Lina happiest, or answer in plain text if no tool fits."
+          },
+          {
+            "role": "user",
+            "content": "Today is my anniversary with Lina. What would she love?"
+          }
+        ],
+        "tools": [
+          {
+            "type": "function",
+            "function": {
+              "name": "give_gift",
+              "description": "Give the partner a small gift.",
+              "parameters": {
+                "type": "object",
+                "properties": {
+                  "item": {
+                    "type": "string",
+                    "enum": [
+                      "dark_chocolate",
+                      "headphones",
+                      "necklace",
+                      "novel",
+                      "poetry_book",
+                      "roses",
+                      "scented_candle",
+                      "sunflowers",
+                      "teddy_bear",
+                      "truffles"
+                    ],
+                    "description": "The gift to give."
+                  }
+                },
+                "required": [
+                  "item"
+                ]
+              },
+              "return": {
+                "type": "object"
+              }
+            }
+          }
+        ],
+        "gt_calls": [
+          {
+            "__type__": "GTCall",
+            "name": "give_gift",
+            "args": {
+              "item": [
+                "roses"
+              ]
+            }
+          }
+        ],
+        "scenario": {
+          "__type__": "Scenario",
+          "scenario_id": "91dc405600f1f5c2ec287b38ba70ea57eb555ba5",
+          "partner_name": "Lina",
+          "pronoun": "she",
+          "state": {
+            "__type__": "PartnerState",
+            "mood": "happy",
+            "love_meter": 37,
+            "occasion": "anniversary",
+            "preferences": {
+              "__type__": "Preferences",
+              "favorite_gift_types": [
+                "flowers",
+                "plush_toy"
+              ],
+              "liked_genres": [
+                "horror"
+              ],
+              "disliked_genres": [
+                "comedy"
+              ],
+              "favorite_food": "soup",
+              "love_language": "words_of_affirmation"
+            }
+          },
+          "request": "Today is my anniversary with Lina. What would she love?",
+          "optimal_plan": [
+            [
+              {
+                "__type__": "ToolCall",
+                "name": "give_gift",
+                "arguments": {
+                  "item": "roses"
+                }
+              },
+              {
+                "__type__": "ToolCall",
+                "name": "give_gift",
+                "arguments": {
+                  "item": "sunflowers"
+                }
+              },
+              {
+                "__type__": "ToolCall",
+                "name": "give_gift",
+                "arguments": {
+                  "item": "teddy_bear"
+                }
+              }
+            ]
+          ],
+          "optimal_delta": 60,
+          "no_tool_keywords": null
+        },
+        "item_id": "sim-simple-give_gift-91dc405600"
+      }
+    ]
+  },
+  "multiple": {
+    "total_items": 25,
+    "items": [
+      {
+        "__type__": "EvalItem",
+        "category": "multiple",
+        "source": "sim",
+        "prompt_messages": [
+          {
+            "role": "system",
+            "content": "You are helping someone make their partner Grace happy.\nGrace (she/her) is feeling angry. Love meter: 21/100. Occasion: right after a disagreement.\nWhat Grace likes: favorite gifts are flowers; she enjoys action or comedy movies and does not enjoy animation movies; her favorite food is pancakes; her love language is acts of service.\nThink briefly inside <think>...</think>, then call the tools that make Grace happiest, or answer in plain text if no tool fits."
+          },
+          {
+            "role": "user",
+            "content": "We just had an argument and she's upset. What should I do?"
+          }
+        ],
+        "tools": [
+          {
+            "type": "function",
+            "function": {
+              "name": "cook_dinner",
+              "description": "Cook dinner for the partner.",
+              "parameters": {
+                "type": "object",
+                "properties": {
+                  "dish": {
+                    "type": "string",
+                    "enum": [
+                      "curry",
+                      "pancakes",
+                      "pasta",
+                      "soup",
+                      "sushi",
+                      "tacos"
+                    ],
+                    "description": "The dish to cook."
+                  }
+                },
+                "required": [
+                  "dish"
+                ]
+              },
+              "return": {
+                "type": "object"
+              }
+            }
+          },
+          {
+            "type": "function",
+            "function": {
+              "name": "apologize",
+              "description": "Sincerely apologize to the partner.",
+              "parameters": {
+                "type": "object",
+                "properties": {
+                  "reason": {
+                    "type": "string",
+                    "description": "A short reason for the apology (non-empty, at most 200 characters)."
+                  }
+                },
+                "required": [
+                  "reason"
+                ]
+              },
+              "return": {
+                "type": "object"
+              }
+            }
+          }
+        ],
+        "gt_calls": [
+          {
+            "__type__": "GTCall",
+            "name": "apologize",
+            "args": {
+              "reason": {
+                "__type__": "FreeText",
+                "max_len": 200
+              }
+            }
+          }
+        ],
+        "scenario": {
+          "__type__": "Scenario",
+          "scenario_id": "f3fefe422f2aacdb609641dd36176175632cb902",
+          "partner_name": "Grace",
+          "pronoun": "she",
+          "state": {
+            "__type__": "PartnerState",
+            "mood": "angry",
+            "love_meter": 21,
+            "occasion": "after_argument",
+            "preferences": {
+              "__type__": "Preferences",
+              "favorite_gift_types": [
+                "flowers"
+              ],
+              "liked_genres": [
+                "action",
+                "comedy"
+              ],
+              "disliked_genres": [
+                "animation"
+              ],
+              "favorite_food": "pancakes",
+              "love_language": "acts_of_service"
+            }
+          },
+          "request": "We just had an argument and she's upset. What should I do?",
+          "optimal_plan": [
+            [
+              {
+                "__type__": "ToolCall",
+                "name": "apologize",
+                "arguments": {
+                  "reason": "I love you"
+                }
+              }
+            ],
+            [
+              {
+                "__type__": "ToolCall",
+                "name": "give_gift",
+                "arguments": {
+                  "item": "roses"
+                }
+              },
+              {
+                "__type__": "ToolCall",
+                "name": "give_gift",
+                "arguments": {
+                  "item": "sunflowers"
+                }
+              }
+            ]
+          ],
+          "optimal_delta": 55,
+          "no_tool_keywords": null
+        },
+        "item_id": "sim-multiple-2-f3fefe422f"
+      },
+      {
+        "__type__": "EvalItem",
+        "category": "multiple",
+        "source": "sim",
+        "prompt_messages": [
+          {
+            "role": "system",
+            "content": "You are helping someone make their partner Lina happy.\nLina (she/her) is feeling happy. Love meter: 37/100. Occasion: your anniversary.\nWhat Lina likes: favorite gifts are flowers or plush toy; she enjoys horror movies and does not enjoy comedy movies; her favorite food is soup; her love language is words of affirmation.\nThink briefly inside <think>...</think>, then call the tools that make Lina happiest, or answer in plain text if no tool fits."
+          },
+          {
+            "role": "user",
+            "content": "Today is my anniversary with Lina. What would she love?"
+          }
+        ],
+        "tools": [
+          {
+            "type": "function",
+            "function": {
+              "name": "give_gift",
+              "description": "Give the partner a small gift.",
+              "parameters": {
+                "type": "object",
+                "properties": {
+                  "item": {
+                    "type": "string",
+                    "enum": [
+                      "dark_chocolate",
+                      "headphones",
+                      "necklace",
+                      "novel",
+                      "poetry_book",
+                      "roses",
+                      "scented_candle",
+                      "sunflowers",
+                      "teddy_bear",
+                      "truffles"
+                    ],
+                    "description": "The gift to give."
+                  }
+                },
+                "required": [
+                  "item"
+                ]
+              },
+              "return": {
+                "type": "object"
+              }
+            }
+          },
+          {
+            "type": "function",
+            "function": {
+              "name": "watch_movie",
+              "description": "Watch a movie together on the couch.",
+              "parameters": {
+                "type": "object",
+                "properties": {
+                  "genre": {
+                    "type": "string",
+                    "enum": [
+                      "action",
+                      "animation",
+                      "comedy",
+                      "documentary",
+                      "horror",
+                      "romance"
+                    ],
+                    "description": "The movie genre to watch."
+                  }
+                },
+                "required": [
+                  "genre"
+                ]
+              },
+              "return": {
+                "type": "object"
+              }
+            }
+          },
+          {
+            "type": "function",
+            "function": {
+              "name": "apologize",
+              "description": "Sincerely apologize to the partner.",
+              "parameters": {
+                "type": "object",
+                "properties": {
+                  "reason": {
+                    "type": "string",
+                    "description": "A short reason for the apology (non-empty, at most 200 characters)."
+                  }
+                },
+                "required": [
+                  "reason"
+                ]
+              },
+              "return": {
+                "type": "object"
+              }
+            }
+          }
+        ],
+        "gt_calls": [
+          {
+            "__type__": "GTCall",
+            "name": "give_gift",
+            "args": {
+              "item": [
+                "roses"
+              ]
+            }
+          }
+        ],
+        "scenario": {
+          "__type__": "Scenario",
+          "scenario_id": "91dc405600f1f5c2ec287b38ba70ea57eb555ba5",
+          "partner_name": "Lina",
+          "pronoun": "she",
+          "state": {
+            "__type__": "PartnerState",
+            "mood": "happy",
+            "love_meter": 37,
+            "occasion": "anniversary",
+            "preferences": {
+              "__type__": "Preferences",
+              "favorite_gift_types": [
+                "flowers",
+                "plush_toy"
+              ],
+              "liked_genres": [
+                "horror"
+              ],
+              "disliked_genres": [
+                "comedy"
+              ],
+              "favorite_food": "soup",
+              "love_language": "words_of_affirmation"
+            }
+          },
+          "request": "Today is my anniversary with Lina. What would she love?",
+          "optimal_plan": [
+            [
+              {
+                "__type__": "ToolCall",
+                "name": "give_gift",
+                "arguments": {
+                  "item": "roses"
+                }
+              },
+              {
+                "__type__": "ToolCall",
+                "name": "give_gift",
+                "arguments": {
+                  "item": "sunflowers"
+                }
+              },
+              {
+                "__type__": "ToolCall",
+                "name": "give_gift",
+                "arguments": {
+                  "item": "teddy_bear"
+                }
+              }
+            ]
+          ],
+          "optimal_delta": 60,
+          "no_tool_keywords": null
+        },
+        "item_id": "sim-multiple-3-91dc405600"
+      }
+    ]
+  },
+  "parallel": {
+    "total_items": 25,
+    "items": [
+      {
+        "__type__": "EvalItem",
+        "category": "parallel",
+        "source": "sim",
+        "prompt_messages": [
+          {
+            "role": "system",
+            "content": "You are helping someone make their partner Grace happy.\nGrace (she/her) is feeling angry. Love meter: 21/100. Occasion: right after a disagreement.\nWhat Grace likes: favorite gifts are flowers; she enjoys action or comedy movies and does not enjoy animation movies; her favorite food is pancakes; her love language is acts of service.\nThink briefly inside <think>...</think>, then call the tools that make Grace happiest, or answer in plain text if no tool fits."
+          },
+          {
+            "role": "user",
+            "content": "We just had an argument and she's upset. What should I do?"
+          }
+        ],
+        "tools": [
+          {
+            "type": "function",
+            "function": {
+              "name": "give_gift",
+              "description": "Give the partner a small gift.",
+              "parameters": {
+                "type": "object",
+                "properties": {
+                  "item": {
+                    "type": "string",
+                    "enum": [
+                      "dark_chocolate",
+                      "headphones",
+                      "necklace",
+                      "novel",
+                      "poetry_book",
+                      "roses",
+                      "scented_candle",
+                      "sunflowers",
+                      "teddy_bear",
+                      "truffles"
+                    ],
+                    "description": "The gift to give."
+                  }
+                },
+                "required": [
+                  "item"
+                ]
+              },
+              "return": {
+                "type": "object"
+              }
+            }
+          },
+          {
+            "type": "function",
+            "function": {
+              "name": "watch_movie",
+              "description": "Watch a movie together on the couch.",
+              "parameters": {
+                "type": "object",
+                "properties": {
+                  "genre": {
+                    "type": "string",
+                    "enum": [
+                      "action",
+                      "animation",
+                      "comedy",
+                      "documentary",
+                      "horror",
+                      "romance"
+                    ],
+                    "description": "The movie genre to watch."
+                  }
+                },
+                "required": [
+                  "genre"
+                ]
+              },
+              "return": {
+                "type": "object"
+              }
+            }
+          },
+          {
+            "type": "function",
+            "function": {
+              "name": "cook_dinner",
+              "description": "Cook dinner for the partner.",
+              "parameters": {
+                "type": "object",
+                "properties": {
+                  "dish": {
+                    "type": "string",
+                    "enum": [
+                      "curry",
+                      "pancakes",
+                      "pasta",
+                      "soup",
+                      "sushi",
+                      "tacos"
+                    ],
+                    "description": "The dish to cook."
+                  }
+                },
+                "required": [
+                  "dish"
+                ]
+              },
+              "return": {
+                "type": "object"
+              }
+            }
+          },
+          {
+            "type": "function",
+            "function": {
+              "name": "hug",
+              "description": "Give the partner a warm, comforting hug.",
+              "parameters": {
+                "type": "object",
+                "properties": {}
+              },
+              "return": {
+                "type": "object"
+              }
+            }
+          },
+          {
+            "type": "function",
+            "function": {
+              "name": "kiss",
+              "description": "Give the partner a light, affectionate kiss on the cheek.",
+              "parameters": {
+                "type": "object",
+                "properties": {}
+              },
+              "return": {
+                "type": "object"
+              }
+            }
+          },
+          {
+            "type": "function",
+            "function": {
+              "name": "apologize",
+              "description": "Sincerely apologize to the partner.",
+              "parameters": {
+                "type": "object",
+                "properties": {
+                  "reason": {
+                    "type": "string",
+                    "description": "A short reason for the apology (non-empty, at most 200 characters)."
+                  }
+                },
+                "required": [
+                  "reason"
+                ]
+              },
+              "return": {
+                "type": "object"
+              }
+            }
+          },
+          {
+            "type": "function",
+            "function": {
+              "name": "plan_date",
+              "description": "Plan a date together.",
+              "parameters": {
+                "type": "object",
+                "properties": {
+                  "activity": {
+                    "type": "string",
+                    "enum": [
+                      "beach_walk",
+                      "cooking_class",
+                      "museum_visit",
+                      "picnic",
+                      "stargazing"
+                    ],
+                    "description": "The date activity to plan."
+                  }
+                },
+                "required": [
+                  "activity"
+                ]
+              },
+              "return": {
+                "type": "object"
+              }
+            }
+          },
+          {
+            "type": "function",
+            "function": {
+              "name": "send_message",
+              "description": "Send the partner a kind text message.",
+              "parameters": {
+                "type": "object",
+                "properties": {
+                  "text": {
+                    "type": "string",
+                    "description": "The message to send (non-empty, at most 200 characters)."
+                  }
+                },
+                "required": [
+                  "text"
+                ]
+              },
+              "return": {
+                "type": "object"
+              }
+            }
+          },
+          {
+            "type": "function",
+            "function": {
+              "name": "ask_how_partner_feels",
+              "description": "Ask the partner how they feel and listen to the answer.",
+              "parameters": {
+                "type": "object",
+                "properties": {}
+              },
+              "return": {
+                "type": "object"
+              }
+            }
+          }
+        ],
+        "gt_calls": [
+          {
+            "__type__": "GTCall",
+            "name": "apologize",
+            "args": {
+              "reason": {
+                "__type__": "FreeText",
+                "max_len": 200
+              }
+            }
+          },
+          {
+            "__type__": "GTCall",
+            "name": "give_gift",
+            "args": {
+              "item": [
+                "roses"
+              ]
+            }
+          },
+          {
+            "__type__": "GTCall",
+            "name": "give_gift",
+            "args": {
+              "item": [
+                "sunflowers"
+              ]
+            }
+          }
+        ],
+        "scenario": {
+          "__type__": "Scenario",
+          "scenario_id": "f3fefe422f2aacdb609641dd36176175632cb902",
+          "partner_name": "Grace",
+          "pronoun": "she",
+          "state": {
+            "__type__": "PartnerState",
+            "mood": "angry",
+            "love_meter": 21,
+            "occasion": "after_argument",
+            "preferences": {
+              "__type__": "Preferences",
+              "favorite_gift_types": [
+                "flowers"
+              ],
+              "liked_genres": [
+                "action",
+                "comedy"
+              ],
+              "disliked_genres": [
+                "animation"
+              ],
+              "favorite_food": "pancakes",
+              "love_language": "acts_of_service"
+            }
+          },
+          "request": "We just had an argument and she's upset. What should I do?",
+          "optimal_plan": [
+            [
+              {
+                "__type__": "ToolCall",
+                "name": "apologize",
+                "arguments": {
+                  "reason": "I love you"
+                }
+              }
+            ],
+            [
+              {
+                "__type__": "ToolCall",
+                "name": "give_gift",
+                "arguments": {
+                  "item": "roses"
+                }
+              },
+              {
+                "__type__": "ToolCall",
+                "name": "give_gift",
+                "arguments": {
+                  "item": "sunflowers"
+                }
+              }
+            ]
+          ],
+          "optimal_delta": 55,
+          "no_tool_keywords": null
+        },
+        "item_id": "sim-parallel-all-f3fefe422f"
+      },
+      {
+        "__type__": "EvalItem",
+        "category": "parallel",
+        "source": "sim",
+        "prompt_messages": [
+          {
+            "role": "system",
+            "content": "You are helping someone make their partner Lina happy.\nLina (she/her) is feeling happy. Love meter: 37/100. Occasion: your anniversary.\nWhat Lina likes: favorite gifts are flowers or plush toy; she enjoys horror movies and does not enjoy comedy movies; her favorite food is soup; her love language is words of affirmation.\nThink briefly inside <think>...</think>, then call the tools that make Lina happiest, or answer in plain text if no tool fits."
+          },
+          {
+            "role": "user",
+            "content": "Today is my anniversary with Lina. What would she love?"
+          }
+        ],
+        "tools": [
+          {
+            "type": "function",
+            "function": {
+              "name": "give_gift",
+              "description": "Give the partner a small gift.",
+              "parameters": {
+                "type": "object",
+                "properties": {
+                  "item": {
+                    "type": "string",
+                    "enum": [
+                      "dark_chocolate",
+                      "headphones",
+                      "necklace",
+                      "novel",
+                      "poetry_book",
+                      "roses",
+                      "scented_candle",
+                      "sunflowers",
+                      "teddy_bear",
+                      "truffles"
+                    ],
+                    "description": "The gift to give."
+                  }
+                },
+                "required": [
+                  "item"
+                ]
+              },
+              "return": {
+                "type": "object"
+              }
+            }
+          },
+          {
+            "type": "function",
+            "function": {
+              "name": "watch_movie",
+              "description": "Watch a movie together on the couch.",
+              "parameters": {
+                "type": "object",
+                "properties": {
+                  "genre": {
+                    "type": "string",
+                    "enum": [
+                      "action",
+                      "animation",
+                      "comedy",
+                      "documentary",
+                      "horror",
+                      "romance"
+                    ],
+                    "description": "The movie genre to watch."
+                  }
+                },
+                "required": [
+                  "genre"
+                ]
+              },
+              "return": {
+                "type": "object"
+              }
+            }
+          },
+          {
+            "type": "function",
+            "function": {
+              "name": "cook_dinner",
+              "description": "Cook dinner for the partner.",
+              "parameters": {
+                "type": "object",
+                "properties": {
+                  "dish": {
+                    "type": "string",
+                    "enum": [
+                      "curry",
+                      "pancakes",
+                      "pasta",
+                      "soup",
+                      "sushi",
+                      "tacos"
+                    ],
+                    "description": "The dish to cook."
+                  }
+                },
+                "required": [
+                  "dish"
+                ]
+              },
+              "return": {
+                "type": "object"
+              }
+            }
+          },
+          {
+            "type": "function",
+            "function": {
+              "name": "hug",
+              "description": "Give the partner a warm, comforting hug.",
+              "parameters": {
+                "type": "object",
+                "properties": {}
+              },
+              "return": {
+                "type": "object"
+              }
+            }
+          },
+          {
+            "type": "function",
+            "function": {
+              "name": "kiss",
+              "description": "Give the partner a light, affectionate kiss on the cheek.",
+              "parameters": {
+                "type": "object",
+                "properties": {}
+              },
+              "return": {
+                "type": "object"
+              }
+            }
+          },
+          {
+            "type": "function",
+            "function": {
+              "name": "apologize",
+              "description": "Sincerely apologize to the partner.",
+              "parameters": {
+                "type": "object",
+                "properties": {
+                  "reason": {
+                    "type": "string",
+                    "description": "A short reason for the apology (non-empty, at most 200 characters)."
+                  }
+                },
+                "required": [
+                  "reason"
+                ]
+              },
+              "return": {
+                "type": "object"
+              }
+            }
+          },
+          {
+            "type": "function",
+            "function": {
+              "name": "plan_date",
+              "description": "Plan a date together.",
+              "parameters": {
+                "type": "object",
+                "properties": {
+                  "activity": {
+                    "type": "string",
+                    "enum": [
+                      "beach_walk",
+                      "cooking_class",
+                      "museum_visit",
+                      "picnic",
+                      "stargazing"
+                    ],
+                    "description": "The date activity to plan."
+                  }
+                },
+                "required": [
+                  "activity"
+                ]
+              },
+              "return": {
+                "type": "object"
+              }
+            }
+          },
+          {
+            "type": "function",
+            "function": {
+              "name": "send_message",
+              "description": "Send the partner a kind text message.",
+              "parameters": {
+                "type": "object",
+                "properties": {
+                  "text": {
+                    "type": "string",
+                    "description": "The message to send (non-empty, at most 200 characters)."
+                  }
+                },
+                "required": [
+                  "text"
+                ]
+              },
+              "return": {
+                "type": "object"
+              }
+            }
+          },
+          {
+            "type": "function",
+            "function": {
+              "name": "ask_how_partner_feels",
+              "description": "Ask the partner how they feel and listen to the answer.",
+              "parameters": {
+                "type": "object",
+                "properties": {}
+              },
+              "return": {
+                "type": "object"
+              }
+            }
+          }
+        ],
+        "gt_calls": [
+          {
+            "__type__": "GTCall",
+            "name": "give_gift",
+            "args": {
+              "item": [
+                "roses"
+              ]
+            }
+          },
+          {
+            "__type__": "GTCall",
+            "name": "give_gift",
+            "args": {
+              "item": [
+                "sunflowers"
+              ]
+            }
+          },
+          {
+            "__type__": "GTCall",
+            "name": "give_gift",
+            "args": {
+              "item": [
+                "teddy_bear"
+              ]
+            }
+          }
+        ],
+        "scenario": {
+          "__type__": "Scenario",
+          "scenario_id": "91dc405600f1f5c2ec287b38ba70ea57eb555ba5",
+          "partner_name": "Lina",
+          "pronoun": "she",
+          "state": {
+            "__type__": "PartnerState",
+            "mood": "happy",
+            "love_meter": 37,
+            "occasion": "anniversary",
+            "preferences": {
+              "__type__": "Preferences",
+              "favorite_gift_types": [
+                "flowers",
+                "plush_toy"
+              ],
+              "liked_genres": [
+                "horror"
+              ],
+              "disliked_genres": [
+                "comedy"
+              ],
+              "favorite_food": "soup",
+              "love_language": "words_of_affirmation"
+            }
+          },
+          "request": "Today is my anniversary with Lina. What would she love?",
+          "optimal_plan": [
+            [
+              {
+                "__type__": "ToolCall",
+                "name": "give_gift",
+                "arguments": {
+                  "item": "roses"
+                }
+              },
+              {
+                "__type__": "ToolCall",
+                "name": "give_gift",
+                "arguments": {
+                  "item": "sunflowers"
+                }
+              },
+              {
+                "__type__": "ToolCall",
+                "name": "give_gift",
+                "arguments": {
+                  "item": "teddy_bear"
+                }
+              }
+            ]
+          ],
+          "optimal_delta": 60,
+          "no_tool_keywords": null
+        },
+        "item_id": "sim-parallel-all-91dc405600"
+      }
+    ]
+  },
+  "irrelevance": {
+    "total_items": 25,
+    "items": [
+      {
+        "__type__": "EvalItem",
+        "category": "irrelevance",
+        "source": "sim",
+        "prompt_messages": [
+          {
+            "role": "system",
+            "content": "You are helping someone make their partner Grace happy.\nGrace (she/her) is feeling sad. Love meter: 24/100. Occasion: your anniversary.\nWhat Grace likes: favorite gifts are flowers; she enjoys animation movies and does not enjoy action movies; her favorite food is soup; her love language is gifts.\nThink briefly inside <think>...</think>, then call the tools that make Grace happiest, or answer in plain text if no tool fits."
+          },
+          {
+            "role": "user",
+            "content": "What kind of gifts does Grace like best?"
+          }
+        ],
+        "tools": [
+          {
+            "type": "function",
+            "function": {
+              "name": "give_gift",
+              "description": "Give the partner a small gift.",
+              "parameters": {
+                "type": "object",
+                "properties": {
+                  "item": {
+                    "type": "string",
+                    "enum": [
+                      "dark_chocolate",
+                      "headphones",
+                      "necklace",
+                      "novel",
+                      "poetry_book",
+                      "roses",
+                      "scented_candle",
+                      "sunflowers",
+                      "teddy_bear",
+                      "truffles"
+                    ],
+                    "description": "The gift to give."
+                  }
+                },
+                "required": [
+                  "item"
+                ]
+              },
+              "return": {
+                "type": "object"
+              }
+            }
+          },
+          {
+            "type": "function",
+            "function": {
+              "name": "watch_movie",
+              "description": "Watch a movie together on the couch.",
+              "parameters": {
+                "type": "object",
+                "properties": {
+                  "genre": {
+                    "type": "string",
+                    "enum": [
+                      "action",
+                      "animation",
+                      "comedy",
+                      "documentary",
+                      "horror",
+                      "romance"
+                    ],
+                    "description": "The movie genre to watch."
+                  }
+                },
+                "required": [
+                  "genre"
+                ]
+              },
+              "return": {
+                "type": "object"
+              }
+            }
+          },
+          {
+            "type": "function",
+            "function": {
+              "name": "cook_dinner",
+              "description": "Cook dinner for the partner.",
+              "parameters": {
+                "type": "object",
+                "properties": {
+                  "dish": {
+                    "type": "string",
+                    "enum": [
+                      "curry",
+                      "pancakes",
+                      "pasta",
+                      "soup",
+                      "sushi",
+                      "tacos"
+                    ],
+                    "description": "The dish to cook."
+                  }
+                },
+                "required": [
+                  "dish"
+                ]
+              },
+              "return": {
+                "type": "object"
+              }
+            }
+          },
+          {
+            "type": "function",
+            "function": {
+              "name": "hug",
+              "description": "Give the partner a warm, comforting hug.",
+              "parameters": {
+                "type": "object",
+                "properties": {}
+              },
+              "return": {
+                "type": "object"
+              }
+            }
+          },
+          {
+            "type": "function",
+            "function": {
+              "name": "kiss",
+              "description": "Give the partner a light, affectionate kiss on the cheek.",
+              "parameters": {
+                "type": "object",
+                "properties": {}
+              },
+              "return": {
+                "type": "object"
+              }
+            }
+          },
+          {
+            "type": "function",
+            "function": {
+              "name": "apologize",
+              "description": "Sincerely apologize to the partner.",
+              "parameters": {
+                "type": "object",
+                "properties": {
+                  "reason": {
+                    "type": "string",
+                    "description": "A short reason for the apology (non-empty, at most 200 characters)."
+                  }
+                },
+                "required": [
+                  "reason"
+                ]
+              },
+              "return": {
+                "type": "object"
+              }
+            }
+          },
+          {
+            "type": "function",
+            "function": {
+              "name": "plan_date",
+              "description": "Plan a date together.",
+              "parameters": {
+                "type": "object",
+                "properties": {
+                  "activity": {
+                    "type": "string",
+                    "enum": [
+                      "beach_walk",
+                      "cooking_class",
+                      "museum_visit",
+                      "picnic",
+                      "stargazing"
+                    ],
+                    "description": "The date activity to plan."
+                  }
+                },
+                "required": [
+                  "activity"
+                ]
+              },
+              "return": {
+                "type": "object"
+              }
+            }
+          },
+          {
+            "type": "function",
+            "function": {
+              "name": "send_message",
+              "description": "Send the partner a kind text message.",
+              "parameters": {
+                "type": "object",
+                "properties": {
+                  "text": {
+                    "type": "string",
+                    "description": "The message to send (non-empty, at most 200 characters)."
+                  }
+                },
+                "required": [
+                  "text"
+                ]
+              },
+              "return": {
+                "type": "object"
+              }
+            }
+          },
+          {
+            "type": "function",
+            "function": {
+              "name": "ask_how_partner_feels",
+              "description": "Ask the partner how they feel and listen to the answer.",
+              "parameters": {
+                "type": "object",
+                "properties": {}
+              },
+              "return": {
+                "type": "object"
+              }
+            }
+          }
+        ],
+        "gt_calls": [],
+        "scenario": {
+          "__type__": "Scenario",
+          "scenario_id": "6fe5560a350f98e347026ba5c2c0cc3d63922b6c",
+          "partner_name": "Grace",
+          "pronoun": "she",
+          "state": {
+            "__type__": "PartnerState",
+            "mood": "sad",
+            "love_meter": 24,
+            "occasion": "anniversary",
+            "preferences": {
+              "__type__": "Preferences",
+              "favorite_gift_types": [
+                "flowers"
+              ],
+              "liked_genres": [
+                "animation"
+              ],
+              "disliked_genres": [
+                "action"
+              ],
+              "favorite_food": "soup",
+              "love_language": "gifts"
+            }
+          },
+          "request": "What kind of gifts does Grace like best?",
+          "optimal_plan": null,
+          "optimal_delta": null,
+          "no_tool_keywords": [
+            "flowers"
+          ]
+        },
+        "item_id": "sim-irrelevance-no_tool-6fe5560a35"
+      },
+      {
+        "__type__": "EvalItem",
+        "category": "irrelevance",
+        "source": "sim",
+        "prompt_messages": [
+          {
+            "role": "system",
+            "content": "You are helping someone make their partner Grace happy.\nGrace (she/her) is feeling angry. Love meter: 40/100. Occasion: a normal evening.\nWhat Grace likes: favorite gifts are chocolate; she enjoys action movies and does not enjoy horror movies; her favorite food is soup; her love language is words of affirmation.\nThink briefly inside <think>...</think>, then call the tools that make Grace happiest, or answer in plain text if no tool fits."
+          },
+          {
+            "role": "user",
+            "content": "Which movie genres does Grace enjoy?"
+          }
+        ],
+        "tools": [
+          {
+            "type": "function",
+            "function": {
+              "name": "give_gift",
+              "description": "Give the partner a small gift.",
+              "parameters": {
+                "type": "object",
+                "properties": {
+                  "item": {
+                    "type": "string",
+                    "enum": [
+                      "dark_chocolate",
+                      "headphones",
+                      "necklace",
+                      "novel",
+                      "poetry_book",
+                      "roses",
+                      "scented_candle",
+                      "sunflowers",
+                      "teddy_bear",
+                      "truffles"
+                    ],
+                    "description": "The gift to give."
+                  }
+                },
+                "required": [
+                  "item"
+                ]
+              },
+              "return": {
+                "type": "object"
+              }
+            }
+          },
+          {
+            "type": "function",
+            "function": {
+              "name": "watch_movie",
+              "description": "Watch a movie together on the couch.",
+              "parameters": {
+                "type": "object",
+                "properties": {
+                  "genre": {
+                    "type": "string",
+                    "enum": [
+                      "action",
+                      "animation",
+                      "comedy",
+                      "documentary",
+                      "horror",
+                      "romance"
+                    ],
+                    "description": "The movie genre to watch."
+                  }
+                },
+                "required": [
+                  "genre"
+                ]
+              },
+              "return": {
+                "type": "object"
+              }
+            }
+          },
+          {
+            "type": "function",
+            "function": {
+              "name": "cook_dinner",
+              "description": "Cook dinner for the partner.",
+              "parameters": {
+                "type": "object",
+                "properties": {
+                  "dish": {
+                    "type": "string",
+                    "enum": [
+                      "curry",
+                      "pancakes",
+                      "pasta",
+                      "soup",
+                      "sushi",
+                      "tacos"
+                    ],
+                    "description": "The dish to cook."
+                  }
+                },
+                "required": [
+                  "dish"
+                ]
+              },
+              "return": {
+                "type": "object"
+              }
+            }
+          },
+          {
+            "type": "function",
+            "function": {
+              "name": "hug",
+              "description": "Give the partner a warm, comforting hug.",
+              "parameters": {
+                "type": "object",
+                "properties": {}
+              },
+              "return": {
+                "type": "object"
+              }
+            }
+          },
+          {
+            "type": "function",
+            "function": {
+              "name": "kiss",
+              "description": "Give the partner a light, affectionate kiss on the cheek.",
+              "parameters": {
+                "type": "object",
+                "properties": {}
+              },
+              "return": {
+                "type": "object"
+              }
+            }
+          },
+          {
+            "type": "function",
+            "function": {
+              "name": "apologize",
+              "description": "Sincerely apologize to the partner.",
+              "parameters": {
+                "type": "object",
+                "properties": {
+                  "reason": {
+                    "type": "string",
+                    "description": "A short reason for the apology (non-empty, at most 200 characters)."
+                  }
+                },
+                "required": [
+                  "reason"
+                ]
+              },
+              "return": {
+                "type": "object"
+              }
+            }
+          },
+          {
+            "type": "function",
+            "function": {
+              "name": "plan_date",
+              "description": "Plan a date together.",
+              "parameters": {
+                "type": "object",
+                "properties": {
+                  "activity": {
+                    "type": "string",
+                    "enum": [
+                      "beach_walk",
+                      "cooking_class",
+                      "museum_visit",
+                      "picnic",
+                      "stargazing"
+                    ],
+                    "description": "The date activity to plan."
+                  }
+                },
+                "required": [
+                  "activity"
+                ]
+              },
+              "return": {
+                "type": "object"
+              }
+            }
+          },
+          {
+            "type": "function",
+            "function": {
+              "name": "send_message",
+              "description": "Send the partner a kind text message.",
+              "parameters": {
+                "type": "object",
+                "properties": {
+                  "text": {
+                    "type": "string",
+                    "description": "The message to send (non-empty, at most 200 characters)."
+                  }
+                },
+                "required": [
+                  "text"
+                ]
+              },
+              "return": {
+                "type": "object"
+              }
+            }
+          },
+          {
+            "type": "function",
+            "function": {
+              "name": "ask_how_partner_feels",
+              "description": "Ask the partner how they feel and listen to the answer.",
+              "parameters": {
+                "type": "object",
+                "properties": {}
+              },
+              "return": {
+                "type": "object"
+              }
+            }
+          }
+        ],
+        "gt_calls": [],
+        "scenario": {
+          "__type__": "Scenario",
+          "scenario_id": "f0057f2095c897938c3dfda45bc29058554a1170",
+          "partner_name": "Grace",
+          "pronoun": "she",
+          "state": {
+            "__type__": "PartnerState",
+            "mood": "angry",
+            "love_meter": 40,
+            "occasion": "normal_evening",
+            "preferences": {
+              "__type__": "Preferences",
+              "favorite_gift_types": [
+                "chocolate"
+              ],
+              "liked_genres": [
+                "action"
+              ],
+              "disliked_genres": [
+                "horror"
+              ],
+              "favorite_food": "soup",
+              "love_language": "words_of_affirmation"
+            }
+          },
+          "request": "Which movie genres does Grace enjoy?",
+          "optimal_plan": null,
+          "optimal_delta": null,
+          "no_tool_keywords": [
+            "action"
+          ]
+        },
+        "item_id": "sim-irrelevance-no_tool-f0057f2095"
+      }
+    ]
+  },
+  "sim": {
+    "total_items": 90,
+    "items": [
+      {
+        "__type__": "EvalItem",
+        "category": "sim",
+        "source": "sim",
+        "prompt_messages": [
+          {
+            "role": "system",
+            "content": "You are helping someone make their partner Grace happy.\nGrace (she/her) is feeling angry. Love meter: 21/100. Occasion: right after a disagreement.\nWhat Grace likes: favorite gifts are flowers; she enjoys action or comedy movies and does not enjoy animation movies; her favorite food is pancakes; her love language is acts of service.\nThink briefly inside <think>...</think>, then call the tools that make Grace happiest, or answer in plain text if no tool fits."
+          },
+          {
+            "role": "user",
+            "content": "We just had an argument and she's upset. What should I do?"
+          }
+        ],
+        "tools": [
+          {
+            "type": "function",
+            "function": {
+              "name": "give_gift",
+              "description": "Give the partner a small gift.",
+              "parameters": {
+                "type": "object",
+                "properties": {
+                  "item": {
+                    "type": "string",
+                    "enum": [
+                      "dark_chocolate",
+                      "headphones",
+                      "necklace",
+                      "novel",
+                      "poetry_book",
+                      "roses",
+                      "scented_candle",
+                      "sunflowers",
+                      "teddy_bear",
+                      "truffles"
+                    ],
+                    "description": "The gift to give."
+                  }
+                },
+                "required": [
+                  "item"
+                ]
+              },
+              "return": {
+                "type": "object"
+              }
+            }
+          },
+          {
+            "type": "function",
+            "function": {
+              "name": "watch_movie",
+              "description": "Watch a movie together on the couch.",
+              "parameters": {
+                "type": "object",
+                "properties": {
+                  "genre": {
+                    "type": "string",
+                    "enum": [
+                      "action",
+                      "animation",
+                      "comedy",
+                      "documentary",
+                      "horror",
+                      "romance"
+                    ],
+                    "description": "The movie genre to watch."
+                  }
+                },
+                "required": [
+                  "genre"
+                ]
+              },
+              "return": {
+                "type": "object"
+              }
+            }
+          },
+          {
+            "type": "function",
+            "function": {
+              "name": "cook_dinner",
+              "description": "Cook dinner for the partner.",
+              "parameters": {
+                "type": "object",
+                "properties": {
+                  "dish": {
+                    "type": "string",
+                    "enum": [
+                      "curry",
+                      "pancakes",
+                      "pasta",
+                      "soup",
+                      "sushi",
+                      "tacos"
+                    ],
+                    "description": "The dish to cook."
+                  }
+                },
+                "required": [
+                  "dish"
+                ]
+              },
+              "return": {
+                "type": "object"
+              }
+            }
+          },
+          {
+            "type": "function",
+            "function": {
+              "name": "hug",
+              "description": "Give the partner a warm, comforting hug.",
+              "parameters": {
+                "type": "object",
+                "properties": {}
+              },
+              "return": {
+                "type": "object"
+              }
+            }
+          },
+          {
+            "type": "function",
+            "function": {
+              "name": "kiss",
+              "description": "Give the partner a light, affectionate kiss on the cheek.",
+              "parameters": {
+                "type": "object",
+                "properties": {}
+              },
+              "return": {
+                "type": "object"
+              }
+            }
+          },
+          {
+            "type": "function",
+            "function": {
+              "name": "apologize",
+              "description": "Sincerely apologize to the partner.",
+              "parameters": {
+                "type": "object",
+                "properties": {
+                  "reason": {
+                    "type": "string",
+                    "description": "A short reason for the apology (non-empty, at most 200 characters)."
+                  }
+                },
+                "required": [
+                  "reason"
+                ]
+              },
+              "return": {
+                "type": "object"
+              }
+            }
+          },
+          {
+            "type": "function",
+            "function": {
+              "name": "plan_date",
+              "description": "Plan a date together.",
+              "parameters": {
+                "type": "object",
+                "properties": {
+                  "activity": {
+                    "type": "string",
+                    "enum": [
+                      "beach_walk",
+                      "cooking_class",
+                      "museum_visit",
+                      "picnic",
+                      "stargazing"
+                    ],
+                    "description": "The date activity to plan."
+                  }
+                },
+                "required": [
+                  "activity"
+                ]
+              },
+              "return": {
+                "type": "object"
+              }
+            }
+          },
+          {
+            "type": "function",
+            "function": {
+              "name": "send_message",
+              "description": "Send the partner a kind text message.",
+              "parameters": {
+                "type": "object",
+                "properties": {
+                  "text": {
+                    "type": "string",
+                    "description": "The message to send (non-empty, at most 200 characters)."
+                  }
+                },
+                "required": [
+                  "text"
+                ]
+              },
+              "return": {
+                "type": "object"
+              }
+            }
+          },
+          {
+            "type": "function",
+            "function": {
+              "name": "ask_how_partner_feels",
+              "description": "Ask the partner how they feel and listen to the answer.",
+              "parameters": {
+                "type": "object",
+                "properties": {}
+              },
+              "return": {
+                "type": "object"
+              }
+            }
+          }
+        ],
+        "gt_calls": [
+          {
+            "__type__": "GTCall",
+            "name": "apologize",
+            "args": {
+              "reason": {
+                "__type__": "FreeText",
+                "max_len": 200
+              }
+            }
+          },
+          {
+            "__type__": "GTCall",
+            "name": "give_gift",
+            "args": {
+              "item": [
+                "roses"
+              ]
+            }
+          },
+          {
+            "__type__": "GTCall",
+            "name": "give_gift",
+            "args": {
+              "item": [
+                "sunflowers"
+              ]
+            }
+          }
+        ],
+        "scenario": {
+          "__type__": "Scenario",
+          "scenario_id": "f3fefe422f2aacdb609641dd36176175632cb902",
+          "partner_name": "Grace",
+          "pronoun": "she",
+          "state": {
+            "__type__": "PartnerState",
+            "mood": "angry",
+            "love_meter": 21,
+            "occasion": "after_argument",
+            "preferences": {
+              "__type__": "Preferences",
+              "favorite_gift_types": [
+                "flowers"
+              ],
+              "liked_genres": [
+                "action",
+                "comedy"
+              ],
+              "disliked_genres": [
+                "animation"
+              ],
+              "favorite_food": "pancakes",
+              "love_language": "acts_of_service"
+            }
+          },
+          "request": "We just had an argument and she's upset. What should I do?",
+          "optimal_plan": [
+            [
+              {
+                "__type__": "ToolCall",
+                "name": "apologize",
+                "arguments": {
+                  "reason": "I love you"
+                }
+              }
+            ],
+            [
+              {
+                "__type__": "ToolCall",
+                "name": "give_gift",
+                "arguments": {
+                  "item": "roses"
+                }
+              },
+              {
+                "__type__": "ToolCall",
+                "name": "give_gift",
+                "arguments": {
+                  "item": "sunflowers"
+                }
+              }
+            ]
+          ],
+          "optimal_delta": 55,
+          "no_tool_keywords": null
+        },
+        "item_id": "sim-sim-all-f3fefe422f"
+      },
+      {
+        "__type__": "EvalItem",
+        "category": "sim",
+        "source": "sim",
+        "prompt_messages": [
+          {
+            "role": "system",
+            "content": "You are helping someone make their partner Lina happy.\nLina (she/her) is feeling happy. Love meter: 37/100. Occasion: your anniversary.\nWhat Lina likes: favorite gifts are flowers or plush toy; she enjoys horror movies and does not enjoy comedy movies; her favorite food is soup; her love language is words of affirmation.\nThink briefly inside <think>...</think>, then call the tools that make Lina happiest, or answer in plain text if no tool fits."
+          },
+          {
+            "role": "user",
+            "content": "Today is my anniversary with Lina. What would she love?"
+          }
+        ],
+        "tools": [
+          {
+            "type": "function",
+            "function": {
+              "name": "give_gift",
+              "description": "Give the partner a small gift.",
+              "parameters": {
+                "type": "object",
+                "properties": {
+                  "item": {
+                    "type": "string",
+                    "enum": [
+                      "dark_chocolate",
+                      "headphones",
+                      "necklace",
+                      "novel",
+                      "poetry_book",
+                      "roses",
+                      "scented_candle",
+                      "sunflowers",
+                      "teddy_bear",
+                      "truffles"
+                    ],
+                    "description": "The gift to give."
+                  }
+                },
+                "required": [
+                  "item"
+                ]
+              },
+              "return": {
+                "type": "object"
+              }
+            }
+          },
+          {
+            "type": "function",
+            "function": {
+              "name": "watch_movie",
+              "description": "Watch a movie together on the couch.",
+              "parameters": {
+                "type": "object",
+                "properties": {
+                  "genre": {
+                    "type": "string",
+                    "enum": [
+                      "action",
+                      "animation",
+                      "comedy",
+                      "documentary",
+                      "horror",
+                      "romance"
+                    ],
+                    "description": "The movie genre to watch."
+                  }
+                },
+                "required": [
+                  "genre"
+                ]
+              },
+              "return": {
+                "type": "object"
+              }
+            }
+          },
+          {
+            "type": "function",
+            "function": {
+              "name": "cook_dinner",
+              "description": "Cook dinner for the partner.",
+              "parameters": {
+                "type": "object",
+                "properties": {
+                  "dish": {
+                    "type": "string",
+                    "enum": [
+                      "curry",
+                      "pancakes",
+                      "pasta",
+                      "soup",
+                      "sushi",
+                      "tacos"
+                    ],
+                    "description": "The dish to cook."
+                  }
+                },
+                "required": [
+                  "dish"
+                ]
+              },
+              "return": {
+                "type": "object"
+              }
+            }
+          },
+          {
+            "type": "function",
+            "function": {
+              "name": "hug",
+              "description": "Give the partner a warm, comforting hug.",
+              "parameters": {
+                "type": "object",
+                "properties": {}
+              },
+              "return": {
+                "type": "object"
+              }
+            }
+          },
+          {
+            "type": "function",
+            "function": {
+              "name": "kiss",
+              "description": "Give the partner a light, affectionate kiss on the cheek.",
+              "parameters": {
+                "type": "object",
+                "properties": {}
+              },
+              "return": {
+                "type": "object"
+              }
+            }
+          },
+          {
+            "type": "function",
+            "function": {
+              "name": "apologize",
+              "description": "Sincerely apologize to the partner.",
+              "parameters": {
+                "type": "object",
+                "properties": {
+                  "reason": {
+                    "type": "string",
+                    "description": "A short reason for the apology (non-empty, at most 200 characters)."
+                  }
+                },
+                "required": [
+                  "reason"
+                ]
+              },
+              "return": {
+                "type": "object"
+              }
+            }
+          },
+          {
+            "type": "function",
+            "function": {
+              "name": "plan_date",
+              "description": "Plan a date together.",
+              "parameters": {
+                "type": "object",
+                "properties": {
+                  "activity": {
+                    "type": "string",
+                    "enum": [
+                      "beach_walk",
+                      "cooking_class",
+                      "museum_visit",
+                      "picnic",
+                      "stargazing"
+                    ],
+                    "description": "The date activity to plan."
+                  }
+                },
+                "required": [
+                  "activity"
+                ]
+              },
+              "return": {
+                "type": "object"
+              }
+            }
+          },
+          {
+            "type": "function",
+            "function": {
+              "name": "send_message",
+              "description": "Send the partner a kind text message.",
+              "parameters": {
+                "type": "object",
+                "properties": {
+                  "text": {
+                    "type": "string",
+                    "description": "The message to send (non-empty, at most 200 characters)."
+                  }
+                },
+                "required": [
+                  "text"
+                ]
+              },
+              "return": {
+                "type": "object"
+              }
+            }
+          },
+          {
+            "type": "function",
+            "function": {
+              "name": "ask_how_partner_feels",
+              "description": "Ask the partner how they feel and listen to the answer.",
+              "parameters": {
+                "type": "object",
+                "properties": {}
+              },
+              "return": {
+                "type": "object"
+              }
+            }
+          }
+        ],
+        "gt_calls": [
+          {
+            "__type__": "GTCall",
+            "name": "give_gift",
+            "args": {
+              "item": [
+                "roses"
+              ]
+            }
+          },
+          {
+            "__type__": "GTCall",
+            "name": "give_gift",
+            "args": {
+              "item": [
+                "sunflowers"
+              ]
+            }
+          },
+          {
+            "__type__": "GTCall",
+            "name": "give_gift",
+            "args": {
+              "item": [
+                "teddy_bear"
+              ]
+            }
+          }
+        ],
+        "scenario": {
+          "__type__": "Scenario",
+          "scenario_id": "91dc405600f1f5c2ec287b38ba70ea57eb555ba5",
+          "partner_name": "Lina",
+          "pronoun": "she",
+          "state": {
+            "__type__": "PartnerState",
+            "mood": "happy",
+            "love_meter": 37,
+            "occasion": "anniversary",
+            "preferences": {
+              "__type__": "Preferences",
+              "favorite_gift_types": [
+                "flowers",
+                "plush_toy"
+              ],
+              "liked_genres": [
+                "horror"
+              ],
+              "disliked_genres": [
+                "comedy"
+              ],
+              "favorite_food": "soup",
+              "love_language": "words_of_affirmation"
+            }
+          },
+          "request": "Today is my anniversary with Lina. What would she love?",
+          "optimal_plan": [
+            [
+              {
+                "__type__": "ToolCall",
+                "name": "give_gift",
+                "arguments": {
+                  "item": "roses"
+                }
+              },
+              {
+                "__type__": "ToolCall",
+                "name": "give_gift",
+                "arguments": {
+                  "item": "sunflowers"
+                }
+              },
+              {
+                "__type__": "ToolCall",
+                "name": "give_gift",
+                "arguments": {
+                  "item": "teddy_bear"
+                }
+              }
+            ]
+          ],
+          "optimal_delta": 60,
+          "no_tool_keywords": null
+        },
+        "item_id": "sim-sim-all-91dc405600"
+      }
+    ]
+  }
+}
